@@ -46,3 +46,4 @@ process.on('SIGUSR2', () => {
 
 // Importing entire model
 require('../models/user.model');
+require('../models/survey.model');
