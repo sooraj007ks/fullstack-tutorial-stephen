@@ -8,6 +8,7 @@ const app = express();
 const keys = require('./config/keys');
 const billRouter = require('./routes/bill.route.js');
 const authRouter = require('./routes/auth.route.js');
+const surveyRouter = require('./routes/survey.route.js');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -24,6 +25,9 @@ app.use(passport.session());
 
 app.use('/api/stripe', billRouter);
 app.use('/', authRouter);
+app.use('/', surveyRouter);
+
+
 
 if (process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'));

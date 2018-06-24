@@ -2,7 +2,11 @@ const mongoose = require('mongoose');
 
 const RecipientSchema = new mongoose.Schema({
   email: String,
-  responded: Boolean
+  responded: {
+    type: Boolean,
+    default: false
+  },
+  responce : String
 });
 
 const SurveySchema = new mongoose.Schema({
@@ -26,4 +30,4 @@ const SurveySchema = new mongoose.Schema({
   lastResponded: Date
 });
 
-module.exports = mongoose.model('surveys', SurveySchema);
+module.exports = mongoose.model('Survey', SurveySchema, 'surveys');
